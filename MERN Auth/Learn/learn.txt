@@ -1,0 +1,70 @@
+//installation 
+
+npm init -y
+
+npm install express cookie-parser bcryptjs crypto dotenv jsonwebtoken mongoose mailtrap
+
+
+// dev dependencies
+
+npm i nodemon -D
+
+///////////////////////////////////////////////////////////////////
+In npm, both -d and -D are used to add a package as a development dependency, but there's a subtle difference in how they're used:
+
+-D (or --save-dev):
+
+This is the official, recommended flag for adding a package as a development dependency.
+When you run npm install <package> -D, it installs the package and adds it under the devDependencies section in your package.json file.
+This flag is more commonly used and has been the standard for specifying development dependencies since npm version 5.
+-d:
+
+Historically, -d was used to indicate a development dependency, and it still works as a shorthand.
+However, the -D flag is now considered the more standard and explicit version.
+The -d flag still works, but it is a legacy alias for -D and is less commonly used in modern npm versions.
+In short:
+-D is the preferred and more widely used flag, as it is explicit in meaning.
+-d works as well but is essentially an alias and less commonly used in newer npm versions.
+Both flags achieve the same result of adding a package to devDependencies.
+
+///////////////////////////////////////////////////////////////////
+
+type:module || commonJS
+.mjs file 
+https://youtu.be/1xe6y75A9PY?si=ugX9NldZFlnFp-dZ
+
+so in module now we have to import every file as .js like this 
+import { login, logout, signup } from '../controllers/auth.controller.js';
+
+
+//////////////////////////////////////////
+
+Both lines you provided are valid imports in terms of JavaScript syntax, but only one of them will work correctly depending on how the export in auth.route.js is defined.
+
+From the auth.route.js file you shared:
+
+javascript
+Copy code
+export default router;
+This means that router is the default export of the file. When importing a default export, you can give it any name, so either of the following would work:
+
+Correct Usage:
+If you want to name it router:
+
+javascript
+Copy code
+import router from './routes/auth.route.js';
+If you want to name it something else (e.g., authRoutes):
+
+javascript
+Copy code
+import authRoutes from './routes/auth.route.js';
+Summary:
+Both lines are correct, but use only one of them in index.js, depending on your preferred naming. If your intent is clarity, authRoutes might be more descriptive.
+
+/////////////////////////////////////////////////////
+
+
+
+
+
