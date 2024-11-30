@@ -59,7 +59,47 @@ export const signup = async (req, res) =>{
 
 }
 export const login = async (req, res) =>{
-    res.send("Login route")
+    const { email , password } = req.body;
+
+    try {
+        const user = await User.findOne({email});
+        
+        if(!user){
+            return res.status(400).json({
+                success:false,
+                message:"Invalid email! This email doesn't exists"
+            });
+        }
+
+        const isValidpwd = await bcryptjs.compare(password , user.password);
+        if(!isValidpwd){
+            return res.status(400).json({
+                success:false,
+                message:"Invalid password"
+            })
+        }
+        
+        genrateTokenAndSetCookie(res , user._id);
+
+        user.lastLogin = new Date();
+        await user.save();
+
+        return res.status(200).json({
+            success:true,
+            message:"Logged in successfully",
+            user:{
+                ...user._doc,
+                password:undefined
+            },
+        });
+
+    } catch (error) {
+        console.log("Error in login", error);
+        res.status(400).json({
+            success:false,
+            message:error.message
+        });
+    }
 }
 export const logout = async (req, res) =>{
     res.clearCookie("token");
