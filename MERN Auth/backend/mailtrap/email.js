@@ -45,3 +45,21 @@ export const sendWelcomeEmail = async( email , name )=>{
 		throw new Error(`Error sending verification email: ${error}`);
     }
 }
+
+export const sendPasswordResetEmail = async(email, resetURL)=>{
+    const recipient = [{email}];
+
+    try {
+        const response = await mailtrapClient.send({
+            from:sender,
+            to:recipient,
+            subject:"Reset your passowrd",
+            html: PASSWORD_RESET_REQUEST_TEMPLATE.replace('{resetURL}', resetURL),
+            category:"Password rest"
+        })
+
+    } catch (error) {
+        console.log("Error in password reset email" , error);
+        throw Error(`Error sending passowrd reset email: ${error}`);
+    }
+}
