@@ -32,10 +32,10 @@ Both flags achieve the same result of adding a package to devDependencies.
 type:module || commonJS
 .mjs file 
 https://youtu.be/1xe6y75A9PY?si=ugX9NldZFlnFp-dZ
-
+https://youtu.be/mK54Cn4ceac?si=85HfurSrcQ5x1tjq
 so in module now we have to import every file as .js like this 
 import { login, logout, signup } from '../controllers/auth.controller.js';
-
+https://youtu.be/6_JNPmjSevo?si=6utsRnKG8cNbHV3B
 
 //////////////////////////////////////////
 
@@ -64,7 +64,9 @@ Both lines are correct, but use only one of them in index.js, depending on your 
 
 /////////////////////////////////////////////////////
 
+SDK vs API
 
+https://youtu.be/_XUwqWjey3I?si=ZXh8Yzk6IBIBie2E 
 
 
 
