@@ -1,13 +1,18 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
-import FloatingShape from "./components/FloatingShape";
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
+import DashboardPage from './pages/DashboardPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
 import EmailVerificationPage from './pages/EmailVerificationPage';
+
+import FloatingShape from "./components/FloatingShape";
+import LoadingSpinner from './components/LoadingSpinner';
+
+import { useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { useAuthStore } from './store/authStore';
-import { useEffect } from 'react';
-import DashboardPage from './pages/DashboardPage';
-import LoadingSpinner from './components/LoadingSpinner';
+import { Navigate, Route, Routes } from 'react-router-dom';
+
 
 
 //protect routes that require authentication
@@ -71,6 +76,18 @@ function App() {
           } 
         />
         <Route path='/verify-email' element={<EmailVerificationPage />} />
+        <Route path='/forgot-password' element={
+          <RedirectAuthenticateUser>
+            <ForgotPasswordPage />
+          </RedirectAuthenticateUser>
+          } 
+        />
+        <Route path="/reset-password/:token"  element={
+          <RedirectAuthenticateUser>
+            <ResetPasswordPage />
+          </RedirectAuthenticateUser>
+          }
+        />
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
       <Toaster />
