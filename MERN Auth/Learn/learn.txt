@@ -2,7 +2,7 @@
 
 npm init -y
 
-npm install express cookie-parser bcryptjs crypto dotenv jsonwebtoken mongoose mailtrap
+npm install express cookie-parser bcryptjs crypto dotenv jsonwebtoken mongoose mailtrap cors
 
 
 // dev dependencies
