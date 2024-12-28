@@ -1,0 +1,20 @@
+///
+installation 
+
+npm init
+ npm install express helmet morgan body-parser monk joi dotenv --save 
+ npm install nodemon --save-dev
+
+///
+
+express: It is a minimal and flexible Node.js web application framework.
+helmet: It helps in securing HTTP headers in express applications.
+morgan: It is an HTTP request logger middleware for Node. js
+body-parser: It is responsible for parsing the incoming request bodies.
+monk: A tiny layer that provides substantial usability improvements for MongoDB usage.
+joi: It is an object schema description language and object validator.
+dotenv: It loads environment variables from a .env file.
+nodemon: It restarts automatically the node application when file changes in the directory have been detected.
+
+////
+
